@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thymeleaf Demo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline CSS for demonstration (you can move this to a styles.css file) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            margin: 0;
+            padding: 1rem;
+            background-color: #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Thymeleaf Demo</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <sec:authorize access="!isAuthenticated()">
+            <li th:if="${!isAuth}"><a href="/login">Log In</a></li>
+        </sec:authorize>
+        <sec:authorize access="isAuthenticated()">
+            <li th:if="${isAuth}"><a href="/logout-confirm">Log Out</a></li>
+        </sec:authorize>
+        <li><a href="/news">News</a></li>
+        <li><a href="/profile">Profile</a></li>
+    </ul>
+</nav>
+<main>
+    <h2 th:text="${message}">Default Welcome Message</h2>
+    <!--    <div>-->
+    <!--        &lt;!&ndash; Check if the user is authenticated &ndash;&gt;-->
+    <!--        <sec:authorize access="isAuthenticated()">-->
+    <!--            <button th:text="'Welcome, ' + ${#authentication.name}">Profile</button>-->
+    <!--        </sec:authorize>-->
+
+    <!--        <sec:authorize access="!isAuthenticated()">-->
+    <!--            <button onclick="location.href='/login'">Login</button>-->
+    <!--        </sec:authorize>-->
+    <!--    </div>-->
+    <section>
+        <h2>About Us</h2>
+        <p>This is a short introduction about the website or company. You can describe what you offer or your mission
+            statement here.</p>
+    </section>
+
+    <section>
+        <h2>Our Services</h2>
+        <p>Highlight your key services or features here. You can list them or provide a summary of what visitors can
+            expect.</p>
+    </section>
+
+    <section>
+        <h2>Get in Touch</h2>
+        <p>Provide contact information or direct users to your contact page.</p>
+    </section>
+
+</main>
+<footer>
+    <p>&copy; 2024 Thymeleaf Demo</p>
+</footer>
+</body>
+</html>

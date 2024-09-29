@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-yes {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-no {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Are you sure you want to log out?</h1>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-yes">Yes, Log me out</button>
+    </form>
+    <a href="/home" class="btn btn-no">No, Take me back</a>
+</div>
+</body>
+</html>
