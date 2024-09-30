@@ -15,12 +15,13 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/home", "/news", "/").permitAll()  // Allow public access to /home and /news
+                        .requestMatchers("/home", "/news", "/", "/captcha", "/user-login").permitAll()  // Allow public access to /home and /news
                         .requestMatchers("/profile", "/logout").authenticated() // Require authentication for /profile
                         .anyRequest().authenticated()  // All other requests require authentication
                 )
                 .formLogin(form -> form
                         .loginPage("/login")  // Use custom login page
+                        // Remove to prevent spring from automatically handling the authentication
                         .loginProcessingUrl("/login")  // URL that Spring Security will use to process the login
                         .defaultSuccessUrl("/home", true)  // Redirect to /home after successful login
                         .failureUrl("/login?error=true")  // Redirect to /custom-login with error if authentication fails
@@ -43,8 +44,8 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         return new InMemoryUserDetailsManager(
                 User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
+                        .username("u")
+                        .password("u")
                         .roles("USER")
                         .build()
         );
