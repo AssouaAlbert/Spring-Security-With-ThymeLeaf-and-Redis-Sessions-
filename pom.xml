@@ -4,6 +4,12 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>com.aassoua</groupId>
+	<artifactId>captcha</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<description>Service to generate and handle captcha for forms</description>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -11,11 +17,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.assoua</groupId>
-	<artifactId>Spring-Security-With-ThymeLeaf-and-Redis-Sessions</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring-Security-With-ThymeLeaf-and-Redis-Sessions</name>
-	<description>This project illustrates the usage of Spring Boot, Spring Security, Thymeleaf, and Redis to manage sessions.</description>
+<!--	<groupId>com.assoua</groupId>-->
+<!--	<artifactId>Spring-Security-With-ThymeLeaf-and-Redis-Sessions</artifactId>-->
+<!--	<version>0.0.1-SNAPSHOT</version>-->
+<!--	<name>Spring-Security-With-ThymeLeaf-and-Redis-Sessions</name>-->
+<!--	<description>This project illustrates the usage of Spring Boot, Spring Security, Thymeleaf, and Redis to manage sessions.</description>-->
 
 	<properties>
 		<java.version>17</java.version>
